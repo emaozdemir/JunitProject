@@ -28,7 +28,7 @@ public abstract class TestBase {//Classı abstract yaparak bu classtan obje olu�
     modifier'ı seçiyoruz.
 */
 
-    protected WebDriver driver;//protected access modifier ile driver objesine class pacgae dışından sadece subclasslar ulaşabilir.
+    protected static WebDriver driver;//protected access modifier ile driver objesine class pacgae dışından sadece subclasslar ulaşabilir.
 
     @Before//Her @Test methodu öncesi çalışır.
     public void setUp() {
