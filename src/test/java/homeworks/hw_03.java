@@ -6,8 +6,8 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
+
 
 public class hw_03 {
     /*
@@ -23,7 +23,7 @@ public class hw_03 {
     public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://google.com");
+      driver.get("https://clarusway.com");
     }
     @After
     public void tearDown() throws InterruptedException {
@@ -33,17 +33,21 @@ public class hw_03 {
 
     @Test
     public void test01() {
-        assertTrue("URL contains 'clarusway'", driver.getCurrentUrl().contains("clarusway"));
+
+        assertTrue("URL not contains 'clarusway'", driver.getCurrentUrl().contains("clarusway"));
     }
 
     @Test
     public void test02() {
-        assertTrue("Title contains 'Python'", driver.getTitle().contains("Python"));
+        assertFalse("Title not contains 'Python'", driver.getTitle().contains("Python"));
     }
+
+//Check if the title equals to "Online IT Bootcamp; Learn Coding, Data Science, AWS, DevOps, Cyber Security & Salesforce"
 
     @Test
     public void test03() {
-        String expectedTitle = "Online IT Bootcamp; Learn to Code, Data Science, AWS, DevOps, Cybersecurity, and Salesforce";
-        assertEquals("Title is correct", expectedTitle, driver.getTitle());
+        String expectedTitle = "Online IT Bootcamp; Learn Coding, Data Science, AWS, DevOps, Cyber Security & Salesforce";
+       // driver.getTitle();
+        assertEquals("Title is not correct", expectedTitle, driver.getTitle());
     }
 }

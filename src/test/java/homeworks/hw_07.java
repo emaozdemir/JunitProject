@@ -18,8 +18,9 @@ public class hw_07 extends TestBase {
     public void test01(){
         driver.get("https://testpages.eviltester.com/styled/find-by-playground-test.html");
 
-        List < WebElement> p42=driver.findElements(By.tagName("p"));
-        assertEquals(42,p42.size());
+      //  List <WebElement> p42=driver.findElements(By.tagName("p"));
+        List <WebElement> pList=driver.findElements(By.xpath("//p[@class='normal']"));
+        assertEquals("esit degil",42,pList.size());
     }
 
 }

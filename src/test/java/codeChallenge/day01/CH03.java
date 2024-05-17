@@ -35,16 +35,20 @@ public class CH03 {
     }
 
     @Test
-    public void test01() {
-    //  TESTLİO (https://testlio.com/) LİVE INTERVİEW QUESTION
+    public void test01() throws InterruptedException {
+    //  TESTLİO (https://testlio.com/) LİVE INTERVİEW QUESTION kurstan birine sorulmus
 
-    //1) Open the browser
-    // before da yapıyor otomatik
+    //1) Open the browser // before da yapıyor otomatik
+
     //2) Enter the URL "http://practice.automationtesting.in/"
     driver.get("http://practice.automationtesting.in/");
     //3) Test whether the Home page has Three Sliders only
-        List<WebElement> slidersList=driver.findElements(By.xpath("//div[@data-slide-duration='0']"));
+       List<WebElement> slidersList=driver.findElements(By.xpath("//div[@data-slide-duration='0']"));
+       // List<WebElement> slidersList=driver.findElements(By.xpath("//*[@id=\"n2-ss-6\"]/div[1]/div/div/div[2]+"));
         // List<WebElement> slidersList=driver.findElements(By.id("n2-ss-6"));
+        Thread.sleep(2000);
         Assert.assertEquals(3,slidersList.size());
+        //*[@id="n2-ss-6"]/div[1]/div/div/div[1]
+
     }
 }

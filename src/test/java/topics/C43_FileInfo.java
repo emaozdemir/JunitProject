@@ -24,7 +24,7 @@ public class C43_FileInfo {
         // JRE SURUM NUMARASI
         System.out.println("6) " + System.getProperty("java.version"));
 
-        // iSLETiM SiSTEMi ADI
+        // iSLETiM SiSTEMi ADI -> 7) Windows 11 ama benim ki 10 suan neden
         System.out.println("7) " + System.getProperty("os.name"));
 
         // iSLETiM SiSTEMi SURUMU

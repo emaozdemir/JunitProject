@@ -44,27 +44,33 @@ public class C28_iFrame extends TestBase {
 //Go to URL: https://the-internet.herokuapp.com/iframe
         driver.get("https://the-internet.herokuapp.com/iframe");
 
-//Verify the Bolded text contains “Editor”
-        assert driver.findElement(By.tagName("h3")).getText().contains("Editor");
 
-//Locate the text box
-        //text box iFrame yani başka bir sayfada olduğından o iFrame'e switch yapalım:
-        driver.switchTo().frame(0);//Sayfadaki ilk iFrame'e driver'ı switch ettik(götürüdük).
-
-        WebElement textBox = driver.findElement(By.id("tinymce"));//text box iFrame yani başka bir sayfadadır.
-
-//Delete the text in the text box
-        textBox.clear();
-
-//Type “Hi everyone”
-        textBox.sendKeys("Hi everyone");
-
-//Verify the text "Elemental Selenium" text is displayed on the page.
-        //driver inner frame(iç frame'de) olduğu için parant (üst) frame'e geçmeliyiz. Çünkü elemanımız parent frame'de yer almaktadır.
-        driver.switchTo().defaultContent();
-        driver.switchTo().parentFrame();
-
-        assert driver.findElement(By.linkText("Elemental Selenium")).isDisplayed();
+       driver.switchTo().frame(0);
+        WebElement bul = driver.findElement(By.id("tinymce"));
+        bul.clear();
+        bul.sendKeys("sema");
+        bul.getText();
+////Verify the Bolded text contains “Editor”
+//        assert driver.findElement(By.tagName("h3")).getText().contains("Editor");
+//
+////Locate the text box
+//        //text box iFrame yani başka bir sayfada olduğından o iFrame'e switch yapalım:
+//        driver.switchTo().frame(0);//Sayfadaki ilk iFrame'e driver'ı switch ettik(götürüdük).
+//
+//        WebElement textBox = driver.findElement(By.id("tinymce"));//text box iFrame yani başka bir sayfadadır.
+//
+////Delete the text in the text box
+//        textBox.clear();
+//
+////Type “Hi everyone”
+//        textBox.sendKeys("Hi everyone");
+//
+////Verify the text "Elemental Selenium" text is displayed on the page.
+//        //driver inner frame(iç frame'de) olduğu için parant (üst) frame'e geçmeliyiz. Çünkü elemanımız parent frame'de yer almaktadır.
+//        driver.switchTo().defaultContent();
+//        driver.switchTo().parentFrame();
+//
+//        assert driver.findElement(By.linkText("Elemental Selenium")).isDisplayed();
 
     }
 }

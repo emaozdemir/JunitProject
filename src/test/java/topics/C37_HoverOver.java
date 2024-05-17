@@ -16,10 +16,10 @@ public class C37_HoverOver extends TestBase {
 
     @Test
     public void hoverOverTest() throws InterruptedException {
-//Go to URL: https://www.browserstack.com/
+        //Go to URL: https://www.browserstack.com/
         driver.get("https://www.browserstack.com/");
 
-//Hover over on “Products” link.
+        //Hover over on “Products” link.
         WebElement products = driver.findElement(By.id("products-dd-toggle"));
 
         Actions actions = new Actions(driver);
@@ -27,11 +27,11 @@ public class C37_HoverOver extends TestBase {
                 .moveToElement(products)//moveToElement() methodu parantez içinde belirtilen wen elmentin üzerine fareyi getirir.
                 .perform();
 
-//Click on "Automate".
+        //Click on "Automate".
         driver.findElement(By.xpath("(//div[.='Browser automation grid'])[1]")).click();
 
 
-//Verify the page URL contains “automate”.
+        //Verify the page URL contains “automate”.
         assert driver.getCurrentUrl().contains("automate");
 
     }

@@ -1,6 +1,7 @@
 package codeChallenge.day01;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -36,13 +37,13 @@ public class CH01 {
     @After
     public void tearDown() throws InterruptedException {
         Thread.sleep(2000);
-        driver.quit();
+        //driver.quit();
     }
     @Test
     public void test01() throws InterruptedException {
         //1) Open the browser
         //2) Enter the URL https://www.ikea.com/
-        driver.get("https://www.google.com");
+        driver.get("https://www.ikea.com");
         //3) set expected title "Welcome"
         Thread.sleep(1000);
         String expectedTitle="Welcome";
@@ -51,7 +52,7 @@ public class CH01 {
         String actualTitle=driver.getTitle();
         //5) verify title: contains "Welcome"
         Thread.sleep(1000);
-        assertEquals(expectedTitle,actualTitle);
+        Assert.assertTrue(actualTitle.contains(expectedTitle));
         //6) get currentUrl text
         Thread.sleep(1000);
         String urli=driver.getCurrentUrl();

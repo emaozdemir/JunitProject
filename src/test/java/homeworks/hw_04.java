@@ -45,6 +45,7 @@ public class hw_04 {
         driver.findElement(By.id("calculatetest")).click();
 //        Type any number in the first input
         WebElement number1 = driver.findElement(By.id("number1"));
+        number1.click();
         number1.sendKeys("10");
 //        Type any number in the second input
         WebElement number2 = driver.findElement(By.id("number2"));

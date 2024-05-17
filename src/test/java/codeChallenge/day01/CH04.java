@@ -13,12 +13,13 @@ import java.time.Duration;
 import java.util.List;
 
 public class CH04 {
-    /*
- TESTLİO (https://testlio.com/) LİVE INTERVİEW QUESTION
- //1) Open the browser
- //2) Enter the URL "http://practice.automationtesting.in/"
- //3) Test whether the Home page has Three Sliders only
- */
+    // Navigate to  https://testpages.herokuapp.com/styled/index.html
+    // Click on  Calculate under Micro Apps
+    // Type any number in the first input
+    // Type any number in the second input
+    // Click on Calculate
+    // Get the result
+    // Print the result
     static WebDriver driver;
 
     @Before
@@ -36,15 +37,26 @@ public class CH04 {
 
     @Test
     public void test01() {
-    //  TESTLİO (https://testlio.com/) LİVE INTERVİEW QUESTION
+        // Navigate to  https://testpages.herokuapp.com/styled/index.html
+        driver.get("https://testpages.herokuapp.com/styled/index.html");
+        // Click on  Calculate under Micro Apps
+        driver.findElement(By.id("calculatetest")).click();
+        // Type any number in the first input
+        WebElement no1 = driver.findElement(By.id("number1"));
+        no1.click();
+        no1.sendKeys("7");
+        // Type any number in the second input
+        WebElement no2 = driver.findElement(By.id("number2"));
+        no2.click();
+        no2.sendKeys("7");
+        // Click on Calculate
+        driver.findElement(By.id("calculate")).click();
+        // Get the result
+        WebElement cvp = driver.findElement(By.id("answer"));
+        String sonuc = cvp.getText();
 
-    //1) Open the browser
-    // before da yapıyor otomatik
-    //2) Enter the URL "http://practice.automationtesting.in/"
-    driver.get("http://practice.automationtesting.in/");
-    //3) Test whether the Home page has Three Sliders only
-        List<WebElement> slidersList=driver.findElements(By.xpath("//div[@data-slide-duration='0']"));
-        // List<WebElement> slidersList=driver.findElements(By.id("n2-ss-6"));
-        Assert.assertEquals(3,slidersList.size());
+        // Print the result
+        System.out.println("sonuc = " + sonuc);
+
     }
 }

@@ -10,14 +10,15 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
 public class C41_RobotClass extends TestBase {
-/*
-    Go to https://testpages.eviltester.com/styled/basic-html-form-test.html
-    Copy h1 element's text and paste it into username input
-    Click enter
-    Scroll page down
-    Scroll page up
-    (Don't use click() and sendKeys() methods)
- */
+    
+    /*
+        Go to https://testpages.eviltester.com/styled/basic-html-form-test.html
+        Copy h1 element's text and paste it into username input
+        Click enter
+        Scroll page down
+        Scroll page up
+        (Don't use click() and sendKeys() methods)
+     */
     @Test
     public void robotClassTest() throws AWTException, InterruptedException {
 //Go to https://testpages.eviltester.com/styled/basic-html-form-test.html
