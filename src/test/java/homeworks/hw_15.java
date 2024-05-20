@@ -6,8 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import utilities.TestBase;
 
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 
 public class hw_15 extends TestBase {

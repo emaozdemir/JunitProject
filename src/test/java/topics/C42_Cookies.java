@@ -6,8 +6,6 @@ import utilities.TestBase;
 
 import java.util.Set;
 
-import static org.openqa.selenium.devtools.v85.page.Page.getCookies;
-
 public class C42_Cookies extends TestBase {
     /*
         Go to URL: https://kitchen.applitools.com/ingredients/cookie

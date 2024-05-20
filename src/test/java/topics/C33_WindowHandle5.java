@@ -4,8 +4,6 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import utilities.TestBase;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;

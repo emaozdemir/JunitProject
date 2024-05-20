@@ -1,13 +1,21 @@
 package utilities;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 
 public abstract class TestBase {//Classı abstract yaparak bu classtan obje oluşturulmasını engelliyoruz.
 /*
@@ -34,13 +42,43 @@ public abstract class TestBase {//Classı abstract yaparak bu classtan obje olu�
     public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));//her Web elementin yüklenip bulunması için 15 saniyeye kadar bekler.
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));//Web elementin yüklenip bulunması için 15 saniyeye kadar bekler. NoSuchElementException atar.
     }
 
     @After//Her @Test methodu sonrası çalışır.
     public void tearDown() throws InterruptedException {
         Thread.sleep(3000);
         driver.quit();
+    }
+
+    public void getFullPageScreenShot() {
+
+        TakesScreenshot screenshot = (TakesScreenshot) driver;
+        File ss = screenshot.getScreenshotAs(OutputType.FILE);
+
+        String time = new SimpleDateFormat("yyMMddhhmmss").format(new Date()) + System.nanoTime();
+
+        try {
+            FileUtils.copyFile(ss, new File("test-output/screenshots/" + time + ".png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void getSpecificElementsScreenShot(WebElement element){
+
+        File ss = element.getScreenshotAs(OutputType.FILE);
+
+        String time = new SimpleDateFormat("yyMMddhhmmss").format(new Date())+System.nanoTime();
+
+        try {
+            FileUtils.copyFile(ss, new File("test-output/screenshots/"+time+".png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 
 }

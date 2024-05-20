@@ -3,11 +3,7 @@ package homeworks;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.TestBase;
-
-import java.time.Duration;
 
 public class hw_05 extends TestBase {
     /*
