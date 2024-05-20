@@ -35,11 +35,11 @@ public class C40_JavaScriptExecutor extends TestBase {
         Thread.sleep(3000);
         //Safyayı en üste kaydır:
         driver.switchTo().defaultContent();//driver iFrame içerisinde bulunduğundan scroll işlemi iç sayfada yapılıyor. Bu yüzden dış sayfaya gidiyoruz.
-        js.executeScript("window.scrollTo(0, 0)");
+        js.executeScript("window.scrollTo(0, 0)");//en yukari alma
 
         //Sayfayı en dibe kaydır:
         Thread.sleep(3000);
-        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");//en asagıya alma
 
     }
 }

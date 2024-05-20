@@ -23,8 +23,8 @@ public class C38_KeyboardActions extends TestBase {
                 .sendKeys(Keys.TAB)
                 .sendKeys(Keys.TAB)
                 .keyDown(Keys.SHIFT)//Shift tuşuna basılı tutar
-                .sendKeys("j")
-                .keyUp(Keys.SHIFT)
+                .sendKeys("j")//basili tuttuğumuz ıcın buyuk harf seklinde yazar
+                .keyUp(Keys.SHIFT)//shiftten kaldırır
                 .sendKeys("ohn")
                 .sendKeys(Keys.ENTER)
                 .perform();

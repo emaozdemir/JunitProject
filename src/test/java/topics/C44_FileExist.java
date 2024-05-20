@@ -24,17 +24,18 @@ public class C44_FileExist extends TestBase {
     public void fileExistTest() {
         //masaustundeki Flower.bmp dosyasinin varlığını test edelim.
 //      boolean isFileExist= Files.exists(Path.of("C:\\Users\\semao\\OneDrive\\Masaüstü\\Flower.bmp"));
-//       assertTrue(isFileExist);
+//       assertTrue(isFileExist);//bu hali dinameik değil o yuzden alttakiler gibi yapılır
+
         String userHome = System.getProperty("user.home");//Kullanıcı adına kadar(dahil) olan yolu verir.
         System.out.println("userHome = " + userHome);
         boolean isFileExist = Files.exists(Path.of(userHome + "/OneDrive/Masaüstü/Flower.bmp"));//kodun dinamik olabilmesi için, dosya yolunun dinamik yazılması gerekir.
         assertTrue(isFileExist);
 
         //Masaüstündeki Bird.bmp dosyasnın olmadığını test edelim.
-        boolean isBirdExist = Files.exists(Path.of(userHome+"/Desktop/Bird.bmp"));
+        boolean isBirdExist = Files.exists(Path.of(userHome + "/Desktop/Bird.bmp"));
         assertFalse(isBirdExist);
-
-        String userDir = System.getProperty("user.dir");
+//projede bulunan bir dosyanın varlığını test edelim
+        String userDir = System.getProperty("user.dir");//projenin adi dahil yolunu verir.
         System.out.println("userDir = " + userDir);
         boolean isAddressesExist = Files.exists(Path.of(userDir + "/Addresses.txt"));
         assertTrue(isAddressesExist);

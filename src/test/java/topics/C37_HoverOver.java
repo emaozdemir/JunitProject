@@ -24,7 +24,7 @@ public class C37_HoverOver extends TestBase {
 
         Actions actions = new Actions(driver);
         actions
-                .moveToElement(products)//moveToElement() methodu parantez içinde belirtilen wen elmentin üzerine fareyi getirir.
+                .moveToElement(products)//moveToElement() methodu parantez içinde belirtilen web elmentin üzerine fareyi getirir.
                 .perform();
 
         //Click on "Automate".

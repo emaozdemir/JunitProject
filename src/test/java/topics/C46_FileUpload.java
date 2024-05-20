@@ -22,7 +22,7 @@ public class C46_FileUpload extends TestBase {
 
 //        Find the path of the file that you want to upload.
         WebElement fileInput = driver.findElement(By.xpath("//input[@type='file']"));
-        fileInput.sendKeys(System.getProperty("user.home") + "/Desktop/Flower.bmp");
+        fileInput.sendKeys(System.getProperty("user.home") + "\\OneDrive\\Masaüstü\\Flower.bmp");
 
 //        Click on Upload button.
         driver.findElement(By.cssSelector("input[value='submit']")).click();
