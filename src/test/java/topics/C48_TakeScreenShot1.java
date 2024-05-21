@@ -32,7 +32,9 @@ public class C48_TakeScreenShot1 extends TestBase {
         String time = new SimpleDateFormat("yyMMddhhmmss").format(new Date())+System.nanoTime();
         String url = driver.getCurrentUrl();
 
-        FileUtils.copyFile(ss, new File("test-output/screenshots/"+time+".png") );
+      //  FileUtils.copyFile(ss, new File("test-output/screenshots/ss.png") ); //alttaki ve üsteki satir olmasa sadece bu haliyle her defasında onceki ss siler yerine bunu yazar.
+      //  FileUtils.copyFile(ss, new File("src/test-output/screenshots/"+time+".png") );//bu hali src içine açar
+        FileUtils.copyFile(ss, new File("test-output/screenshots/"+time+".png") );//kalıcı olarak tarihli saatli kayıt yeni sayfa yı ustune yazmaz yani
 
     }
 

@@ -34,7 +34,7 @@ public class C52_WriteExcelFirstnameLastname {
         row2.createCell(0).setCellValue("John");
         row2.createCell(1).setCellValue("Doe");
 
-        for (int i = 2; i< 500; i++){
+        for (int i = 2; i< 50; i++){
 
             newSheet.createRow(i).createCell(0).setCellValue(Faker.instance().name().firstName());
             newSheet.getRow(i).createCell(1).setCellValue(Faker.instance().name().lastName());//2. kez create yaparsak bir önceki silinir.

@@ -1,6 +1,8 @@
 package utilities;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -12,6 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -66,19 +69,35 @@ public abstract class TestBase {//ClassÄ± abstract yaparak bu classtan obje oluÅ
 
     }
 
-    public void getSpecificElementsScreenShot(WebElement element){
+    public void getSpecificElementsScreenShot(WebElement element) {
 
         File ss = element.getScreenshotAs(OutputType.FILE);
 
-        String time = new SimpleDateFormat("yyMMddhhmmss").format(new Date())+System.nanoTime();
+        String time = new SimpleDateFormat("yyMMddhhmmss").format(new Date()) + System.nanoTime();
 
         try {
-            FileUtils.copyFile(ss, new File("test-output/screenshots/"+time+".png"));
+            FileUtils.copyFile(ss, new File("test-output/screenshots/" + time + ".png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
 
     }
+
+    public String getCellValue(String excelName, String sheetName, int rowIndex, int cellIndex) {
+
+        String filePath = System.getProperty("user.dir") + "\\resources\\" + excelName + ".xlsx";
+        FileInputStream fileInputStream = null;
+        Workbook workbook;
+        try {
+            fileInputStream = new FileInputStream(filePath);
+            workbook = WorkbookFactory.create(fileInputStream);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return workbook.getSheet(sheetName).getRow(rowIndex).getCell(cellIndex).toString();
+    }
+
 
 }
