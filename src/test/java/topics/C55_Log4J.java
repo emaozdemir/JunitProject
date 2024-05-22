@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class C55_Log4J {
 /*
-    - All: Günlük kaydını açar ve her şeyi günlüğe kaydeder.
+    - TRACE ->All: Günlük kaydını açar ve her şeyi günlüğe kaydeder.
     - DEBUG: Hata ayıklama bilgilerini yazdırır ve geliştirme aşamasında yardımcı olur.
     - INFO: Uygulamanın ilerleyişini vurgulayan bilgi mesajları yazdırır.
     - WARN: Hatalı ve beklenmeyen sistem davranışıyla ilgili bilgileri yazdırır.
@@ -23,7 +23,7 @@ public class C55_Log4J {
 
         logger.fatal("Fatal Message");//Defalut olarak ayarlama yapmadan yazdırılabilir.
         logger.error("Error Message");//Defalut olarak ayarlama yapmadan yazdırılabilir.
-        logger.warn("Warn Message");//Ayarlama yapmadan yazdırılamazlar.
+        logger.warn("Warn Message");//Ayarlama yapmadan yazdırılamazlar.// dosya seklinde log4j.properties olarak ekledik yoksa yazdıramazdık bunları.
         logger.info("Info Message");//Ayarlama yapmadan yazdırılamazlar.
         logger.debug("Debug Message");//Ayarlama yapmadan yazdırılamazlar.
         logger.trace("Trace Message");//Ayarlama yapmadan yazdırılamazlar.

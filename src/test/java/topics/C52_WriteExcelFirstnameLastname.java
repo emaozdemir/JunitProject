@@ -27,7 +27,7 @@ public class C52_WriteExcelFirstnameLastname {
 
         //Create Firstname and Lastname Columns
         newSheet.createRow(0).createCell(0).setCellValue("Firstname");
-        newSheet.getRow(0).createCell(1).setCellValue("Lastname");//2. kez create yaparsak bir önceki silinir.
+        newSheet.getRow(0).createCell(1).setCellValue("Lastname");//2. kez create yaparsak bir önceki silinir.o yuzden bu getRow
 
        //Fill some rows
         Row row2 = newSheet.createRow(1);
@@ -43,6 +43,7 @@ public class C52_WriteExcelFirstnameLastname {
 
 
         workbook.write(new FileOutputStream(filePath));
+
 
     }
 

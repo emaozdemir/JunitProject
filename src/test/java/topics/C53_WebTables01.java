@@ -22,14 +22,14 @@ public class C53_WebTables01 extends TestBase {
     table//tbody//tr//td[5] ➡ 5. sütundaki tüm satırları döndürür.
 */
 
-/*
-    Go to URL: http://demo.guru99.com/test/web-table-element.php
-    To find third row of table
-    To get 3rd row's 3rd column data
-    Get all the values of a Dynamic Table
-*/
+    /*
+        Go to URL: http://demo.guru99.com/test/web-table-element.php
+        To find third row of table
+        To get 3rd row's 3rd column data
+        Get all the values of a Dynamic Table
+    */
     @Test
-    public void webTableTest(){
+    public void webTableTest() {
 
 //Go to URL: http://demo.guru99.com/test/web-table-element.php
         driver.get("http://demo.guru99.com/test/web-table-element.php");
@@ -48,11 +48,13 @@ public class C53_WebTables01 extends TestBase {
 
         List<WebElement> rowList = webTable.findElements(By.xpath(".//tr"));// Başa nokta eklenerek sadece locate edilen web element içinde arama yapılır.
 
-        for (int i = 0; i<rowList.size(); i++){
+        for (int i = 0; i < rowList.size(); i++) {
 
             System.out.println(rowList.get(i).getText());
 
         }
+        //TestBase de create ettiğimiz getTableCell method sayesinde bu bilgilerle sonucu alab,iiliriz
+        System.out.println("getTableCell() = " + getTableCell(webTable,2,1));
 
     }
 }

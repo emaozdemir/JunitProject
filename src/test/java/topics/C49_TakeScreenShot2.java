@@ -21,7 +21,7 @@ public class C49_TakeScreenShot2 extends TestBase {
         driver.get("https://google.com");
 
 //        Take homepage's screenshot//(tüm ekran)
-        getFullPageScreenShot();
+        getFullPageScreenShot();//methodla tüm ekran görüntüsü almak
 
 //        Take logo's screenshot
         WebElement logo = driver.findElement(By.xpath("//img[@alt='Google']"));

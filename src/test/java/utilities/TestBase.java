@@ -1,5 +1,8 @@
 package utilities;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
@@ -7,10 +10,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
@@ -40,7 +40,9 @@ public abstract class TestBase {//Classı abstract yaparak bu classtan obje olu�
 */
 
     protected static WebDriver driver;//protected access modifier ile driver objesine class pacgae dışından sadece subclasslar ulaşabilir.
-
+    protected static ExtentReports extentReports; // Raporlama işlemini gerçekleştirir
+    protected static ExtentSparkReporter extentHtmlReporter; // Raporu HTML olarak düzenler
+    protected static ExtentTest extentTest; // Testimizin pass veya fail olduğunu saklayan objemiz. Ekran görüntüleri için de kullanılır
     @Before//Her @Test methodu öncesi çalışır.
     public void setUp() {
         driver = new ChromeDriver();
@@ -97,6 +99,46 @@ public abstract class TestBase {//Classı abstract yaparak bu classtan obje olu�
         }
 
         return workbook.getSheet(sheetName).getRow(rowIndex).getCell(cellIndex).toString();
+    }
+    //Bu method web element olarak girilen web table'ın belirtilen satırının belirtilen sütunun String olarak döner.
+    public String getTableCell(WebElement element, int row, int column) {
+
+        return element.findElement(By.xpath(".//tr["+row+"]/td["+column+"]")).getText();
+
+    }
+
+    public ExtentReports extentReportsSetUp() {
+
+        // Extent report objelerimizi oluşturuyoruz
+        extentReports = new ExtentReports();
+
+        // Kaydedeceğimiz dosya için tarih stringi oluşturuldu
+        String currentDate = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+        String filePath = System.getProperty("user.dir") + "/test-output/reports/testReport_" + currentDate;
+
+        // HTML raporu oluşturacak obje dosya yoluyla initialize edildi
+        extentHtmlReporter = new ExtentSparkReporter(filePath);
+
+        // Raporlama yapan extentreport objemize HTML reporter bağlandı
+        extentReports.attachReporter(extentHtmlReporter);
+
+        // Test başlatılıyor
+        //extentTest = extentReports.createTest(TestBase.class.getSimpleName() + " - " + Thread.currentThread().getStackTrace()[2].getMethodName());
+
+        // Rapor ile alakalı ekstra opsiyonel bilgiler verildi
+        extentReports.setSystemInfo("Environment", "QA");
+        extentReports.setSystemInfo("Browser", "Chrome");
+        extentReports.setSystemInfo("Tester", "Tester CW");
+        extentReports.setSystemInfo("Company", "Clarusway");
+
+        // HTML raporunda görüntülemek istediğimiz konfigürasyonlar yapıldı
+        extentHtmlReporter.config().setDocumentTitle("JUnit_Report");
+        extentHtmlReporter.config().setReportName("Test run report");
+
+        // extentReports.flush(); --> Test sonu raporun oluşturulması için unutulmamalıdır.
+
+        return extentReports;
+
     }
 
 

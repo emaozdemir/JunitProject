@@ -52,6 +52,7 @@ public class C54_WebTables02 extends TestBase {
         String cellValue = getTableCell(table1, 3, 4);
         System.out.println("\ncellValue = " + cellValue);
 
+
     }
 
 }

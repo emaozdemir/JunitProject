@@ -12,7 +12,7 @@ public class C56_Log4J_Properties {
 
         PropertyConfigurator.configure("log4j.properties");//Ayarların bulunduğu dosya belirtilir.
 
-        Logger logger = LogManager.getLogger(C56_Log4J_Properties.class);//Logger onjesi oluşturulur.
+        Logger logger = LogManager.getLogger(C56_Log4J_Properties.class);//Logger objesi oluşturulur.
 
         //Log yapılır.
         logger.fatal("Fatal Message");//Defalut olarak ayarlama yapmadan yazdırılabilir.
@@ -21,6 +21,9 @@ public class C56_Log4J_Properties {
         logger.info("Info Message");//Ayarlama yapmadan yazdırılamazlar.
         logger.debug("Debug Message");//Ayarlama yapmadan yazdırılamazlar.
         logger.trace("Trace Message");//Ayarlama yapmadan yazdırılamazlar.
+        //bu clası calıstırınca .log klasörü olustu ve oraya yazdırıldı.ve istersek htmlde browserda açma imkanimiz var daha iyi incelemek için.
+        //log4j yi sadece konsola yazdırma ve onları klasörleyip bir yerde tutmak icin kullanıyoruz.raporlama ıcın baska toollar var onları kullanılır genelde.
+
 
     }
 
