@@ -20,6 +20,7 @@ public class C52_WriteExcelFirstnameLastname {
     public void excelTest() throws IOException {
 
         String filePath = System.getProperty("user.dir") + "\\resources\\Capitals.xlsx";
+
         Workbook workbook = WorkbookFactory.create(new FileInputStream(filePath));
 
         //Create a new sheet

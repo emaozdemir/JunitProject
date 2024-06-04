@@ -25,13 +25,13 @@ public class C59_TimeOutException extends TestBase {
         System.out.println(element.getText());
 
     }
+
     @Test
-    public void test2() {
+    public void test2(){
 
         driver.get("https://google.com");
 
-      waitAndLocate(By.name("q")).sendKeys("hello world"+ Keys.ENTER);
-
+        waitAndLocate(By.name("X")).sendKeys("Hello World"+ Keys.ENTER);
 
     }
 

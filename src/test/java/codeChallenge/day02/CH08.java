@@ -1,5 +1,6 @@
 package codeChallenge.day02;
 
+import com.github.javafaker.Faker;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -11,22 +12,21 @@ import java.util.Collections;
 import java.util.List;
 
 
-
 public class CH08 extends TestBase {
     /*
     go to https://sweetshop.vivrichards.co.uk/
     click "Browse Sweets" button
-    Then
+
     Click Add to Basket Button for "Sherbert Straws","Bon Bons" and "Bubble Gums"
-    And
+
     Go to Basket
-    Then
+
     Verify Your Basket inculuding are "Sherbert Straws","Bon Bons" and "Bubble Gums"
-    And
+
     Delete "Bubble Gums" for Basket
-    Then
+
     You use faker class and enter your payment and delivery details.
-    And
+
     Click "Continue to checkout"Button
      */
 
@@ -79,7 +79,10 @@ public class CH08 extends TestBase {
         driver.switchTo().alert().accept();
 
         //    You use faker class and enter your payment and delivery details.
-
+        Faker faker = new Faker();
+        driver.findElement(By.id("name")).sendKeys(faker.name().firstName());
+        driver.findElement(By.xpath("//label[@for='lastName']/following-sibling::input")).sendKeys(faker.name().lastName());
+        driver.findElement(By.xpath("//label[@for='email']/following-sibling::input")).sendKeys(faker.internet().emailAddress());
 
         //    Click "Continue to checkout"Button
     }

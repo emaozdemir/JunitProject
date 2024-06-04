@@ -1,11 +1,15 @@
 package homeworks;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import utilities.TestBase;
 
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class hw_20 extends TestBase {
     /*
@@ -22,13 +26,29 @@ public class hw_20 extends TestBase {
 
         WebElement webTable = driver.findElement(By.id("mytable"));
 
-        List<WebElement> rowList = webTable.findElements(By.xpath(".//td"));// Başa nokta eklenerek sadece locate edilen web element içinde arama yapılır.
-        int total = 0;
-        for (int i = 0; i < rowList.size(); i++) {
-            System.out.println(rowList.get(i).getText());
-
+        List<WebElement> columnList = webTable.findElements(By.xpath(".//td[2]"));// Başa nokta eklenerek sadece locate edilen web element içinde arama yapılır.
+        double total = 0;
+        for (int i = 0; i < columnList.size(); i++) {
+            total += Double.parseDouble(columnList.get(i).getText());
         }
+        System.out.println("total = " + total);
+        //Assert the amount is 110.3
+        //assert total == 110.3;
 
+      //  assertTrue(total == 110.3);
+        assertEquals(110.3, total,0.01);
+    }
+
+    @Test
+    public void test02() {
+        driver.get("https://testpages.herokuapp.com/styled/tag/table.html");
+        List<WebElement> amountList = driver.findElements(By.xpath("//table//tr//td[2]"));
+        double toplam=0;
+        for (int i = 0; i < amountList.size(); i++) {
+            toplam+=Double.parseDouble(amountList.get(i).getText());
+        }
+        System.out.println("toplam = " + toplam);
+        Assert.assertEquals(110.3,0.0);
 
     }
 

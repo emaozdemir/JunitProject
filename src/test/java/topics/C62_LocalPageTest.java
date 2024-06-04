@@ -27,7 +27,7 @@ public class C62_LocalPageTest extends TestBase {
         driver.findElement(By.id("ssn")).sendKeys("334-66-7890");
         driver.findElement(By.id("firstName")).sendKeys(Faker.instance().name().firstName());
         driver.findElement(By.id("lastName")).sendKeys(Faker.instance().name().lastName());
-        clickElementByJS(driver.findElement(By.id("male")));
+        clickElementByJS(driver.findElement(By.id("female")));
 
         new Select(driver.findElement(By.id("job"))).selectByVisibleText("Tester");
         driver.findElement(By.id("cv")).sendKeys(System.getProperty("user.dir") + "/resources/CV.pdf");

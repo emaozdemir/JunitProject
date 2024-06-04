@@ -77,6 +77,19 @@
 <!--            <artifactId>log4j-core</artifactId>-->
 <!--            <version>2.17.2</version>-->
 <!--        </dependency>-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version> <!-- Güncel sürüm numarasını buraya ekleyin -->
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>5.6</version>
+        </dependency>
     </dependencies>
+
 
 </project>

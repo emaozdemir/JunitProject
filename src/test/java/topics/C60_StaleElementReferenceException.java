@@ -40,12 +40,13 @@ public class C60_StaleElementReferenceException extends TestBase {
 //        driver.get("https://google.com");
 //        WebElement searcBox = driver.findElement(By.name("q"));
 //        searcBox.sendKeys("Clarusway"+Keys.ENTER);
+
         driver.get("https://google.com");
         WebElement searcBox = driver.findElement(By.name("q"));
         driver.navigate().refresh();//Refresh yapılınca önceki locate edilen web elementlerin referansları eskir.
 
         //Çözüm: Relocate --> searchBox = driver.findElement(By.name("q"));
-        searcBox.sendKeys("Clarusway" + Keys.ENTER);//StaleElementReferenceException
+       // searcBox.sendKeys("Clarusway" + Keys.ENTER);//StaleElementReferenceException
 
         //çözümü
         WebElement searcBox2 = driver.findElement(By.name("q"));

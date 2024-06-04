@@ -46,5 +46,8 @@ public class hw_15 extends TestBase {
         // driver.findElement(By.xpath("//button[contains(text(), 'Clear')]")).click();
         driver.findElement(By.xpath("//button[@data-action='clear']")).click();
 
+//moveByOffset komutu, fareyi belirli bir mesafe kadar hareket ettirmek için kullanılır.
+// Örneğin, bir düğmenin üzerine gelip, oradan belirli bir piksel uzaklığa hareket etmek
+// istiyorsanız bu komutu kullanabilirsiniz.
     }
 }

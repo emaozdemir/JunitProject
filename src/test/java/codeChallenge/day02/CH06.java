@@ -54,12 +54,9 @@ public class CH06 {
 
         //     Click random 3 Add To Cart Button
         List<WebElement> adToCartList = driver.findElements(By.xpath("//button[@tabindex=\"-1\"]"));
-
+        Random rdm = new Random();
         for (int i = 0; i < 3; i++) {
-
-            Random rdm = new Random();
             int sayi = rdm.nextInt(16);
-
             adToCartList.get(sayi).click();
         }
 

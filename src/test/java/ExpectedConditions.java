@@ -1,5 +1,7 @@
 public class ExpectedConditions {
      /*
+     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//p"), 0));
 
 -alertIsPresent(): Bu fonksiyon, web sayfasında bir uyarı (alert) penceresinin mevcut olup olmadığını kontrol etmek için kullanılır.
                    Eğer bir uyarı penceresi görüntülenmişse, bu metot true dönecek ve test sürecinde bu durumu yakalamanıza olanak sağlayacaktır.
@@ -59,4 +61,5 @@ public class ExpectedConditions {
 
 
     */
+
 }
