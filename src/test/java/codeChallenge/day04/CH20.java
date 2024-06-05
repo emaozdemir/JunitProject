@@ -7,6 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import utilities.TestBase;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 public class CH20 extends TestBase {
 
     /*
@@ -62,6 +65,7 @@ public class CH20 extends TestBase {
         actions.doubleClick(doubleClick).perform();
 
         // 9. "Double click me" butonunun renk değiştridiğini doğrulayın
+        //CLİCK SONRASI ASAĞIDAKİLER
 
         //System.out.println(doubleClick.getAttribute("class"));
         //System.out.println(doubleClick.getCssValue("background-color"));

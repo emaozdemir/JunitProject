@@ -20,8 +20,11 @@ public class CH17 extends TestBase {
     public void test() {
 
         // Step 1: Go to the URL -> https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_open
-        // accept cookies (cikanlar icin) =>  driver.findElement(By.id("accept-choices")).click();
+        // accept cookies (cikanlar icin) =>
+
+
         driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_open");
+        driver.findElement(By.id("accept-choices")).click();
 
         // Step 2: Switch to the iframe containing the "Try it" button
 

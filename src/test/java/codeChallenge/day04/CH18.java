@@ -33,29 +33,22 @@ public class CH18 extends TestBase {
         Point ilkKonum = draggableElementi.getLocation();
         //System.out.println("ilkKonum = " + ilkKonum);
 
-
         Actions actions = new Actions(driver);
-
-        Thread.sleep(3000);
-        actions.dragAndDropBy(draggableElementi, 100, 0)
-                .dragAndDropBy(draggableElementi, -100, 0)
-                .dragAndDropBy(draggableElementi, 0, 100)
-                .dragAndDropBy(draggableElementi, 0, -100)
+        actions
+                .dragAndDropBy(draggableElementi,100,0)
+                .dragAndDropBy(draggableElementi,-100,0)
+                .dragAndDropBy(draggableElementi,0,-100)
+                .dragAndDropBy(draggableElementi,0,100)
                 .perform();
 
-        Point sonKonum = draggableElementi.getLocation();
-
-        Assert.assertEquals(ilkKonum, sonKonum);
+        Assert.assertEquals(ilkKonum,draggableElementi.getLocation());
 
         // "draggable" elementini "target" elementine sürükleyin.
-        // "draggable" elementinin son konumunu alın ve bu konumun "target" elementiyle aynı olduğunu doğrulayın.
 
-        WebElement target = driver.findElement(By.id("target"));
+        actions.dragAndDrop(draggableElementi,driver.findElement(By.id("target"))).perform();
+        Assert.assertEquals(draggableElementi.getLocation(),driver.findElement(By.id("target")).getLocation());
 
-        actions.dragAndDrop(draggableElementi, target)
-                .perform();
 
-        Assert.assertEquals(draggableElementi.getLocation(), target.getLocation());
 
     }
 }
