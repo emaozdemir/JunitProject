@@ -39,31 +39,56 @@ public class JavascriptUtils extends TestBase{
         jsexecutor.executeScript("arguments[0].scrollIntoView();", element);
     }
 
+//    public static void changeBackgroundColorByJS( WebElement element, String color) {
+//        JavascriptExecutor javascriptExecutor = ((JavascriptExecutor) driver);
+//        javascriptExecutor.executeScript("arguments[0].style.backgroundColor = '" + color + "'", element);
+//        try {
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    //Flashing the background color
+//    // https://www.rapidtables.org/tr/web/color/RGB_Color.html  bu siteden renk ayari yapilablir..Kirmizi- Yesil -Mavi
+//    public static void flash( WebElement element) {
+//        String bgColor = element.getCssValue("backgroundcolor");
+//        for (int i = 0; i < 5; i++) {
+//            changeBackgroundColorByJS(element, "rgb(0,200,0)");//"red" filanda yazabiliriz
+//            changeBackgroundColorByJS(element, bgColor);
+//        }
+//    }
+
+    //üsteki iki methodu hw22 için böyle kullanım daha ıyı diye yoruma aldım
     public static void changeBackgroundColorByJS( WebElement element, String color) {
         JavascriptExecutor javascriptExecutor = ((JavascriptExecutor) driver);
         javascriptExecutor.executeScript("arguments[0].style.backgroundColor = '" + color + "'", element);
         try {
-            Thread.sleep(5000);
+            Thread.sleep(100);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
     //Flashing the background color
     // https://www.rapidtables.org/tr/web/color/RGB_Color.html  bu siteden renk ayari yapilablir..Kirmizi- Yesil -Mavi
-    public static void flash( WebElement element) {
+    public static void flash( WebElement element, String color) {
         String bgColor = element.getCssValue("backgroundcolor");
-        for (int i = 0; i < 5; i++) {
-            changeBackgroundColorByJS(element, "rgb(0,200,0");
+        for (int i = 0; i < 10; i++) {
+            changeBackgroundColorByJS(element, color);
             changeBackgroundColorByJS(element, bgColor);
         }
     }
 
     //this will generate an alert when needed
-    public static void generateAlert(String message) throws InterruptedException {
+    public static void generateAlert(String message) {
         JavascriptExecutor javascriptExecutor = ((JavascriptExecutor) driver);
-        javascriptExecutor.executeScript("alert('" + message + "')");
-        Thread.sleep(3000);
+        javascriptExecutor.executeScript("alert('" + message + "');");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /*
